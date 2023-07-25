@@ -1,41 +1,30 @@
-# Example of Update
-dict1 = {'a': 1, 'b': 2}
-dict2 = {'b': 3, 'c': 4}
+try:
+    # Code that might raise an exception
+    result = 10 / 0
+except ZeroDivisionError:
+    # Exception handling code for ZeroDivisionError
+    print("Division by zero is not allowed.")
+finally:
+    # Clean-up code (always executed)
+    print("Cleaning up resources.")
+try:
+    file = open("data.txt", "r")
+    # Code to read data from the file
+    data = file.read()
+except FileNotFoundError:
+    print("File not found.")
+finally:
+    # Clean-up: Close the file (always executed)
+    file.close()
+# Example of Garbage Collection
+def create_large_list():
+    # This function creates a large list, but once the function finishes, the list will be garbage collected.
+    large_list = [i for i in range(1000000)]
+    # 'large_list' will be automatically garbage collected once the function returns.
 
-dict1.update(dict2)
-print(dict1)
+create_large_list()  # Call the function to create the list.
 
-# Example of Comparison
-dict1 = {'a': 1, 'b': 2}
-dict2 = {'a': 1, 'b': 2}
-
-print(dict1 == dict2)
-
-dict3 = {'a': 1, 'b': 2, 'c': 3}
-
-print(dict1 != dict3)
-
-# Example of Length
-my_dict = {'a': 1, 'b': 2, 'c': 3}
-
-print(len(my_dict))
-# Example of Copy
-original_dict = {'a': 1, 'b': 2}
-copied_dict = original_dict.copy()
-
-copied_dict['c'] = 3
-print(original_dict)
-print(copied_dict)
-
-# Example of Items
-my_dict = {'a': 1, 'b': 2, 'c': 3}
-
-print(my_dict.items())
-
-# Example of String Representation
-my_dict = {'a': 1, 'b': 2, 'c': 3}
-
-print(str(my_dict))
-
-
-
+# Example of explicit deletion using 'del'
+my_list = [1, 2, 3]
+del my_list
+# The 'my_list' object has been deleted explicitly and will be garbage collected.
